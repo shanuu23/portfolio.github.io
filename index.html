@@ -1,153 +1,346 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
-	<head>
-		<title>Shanu Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+    <head>
+        <title>Shanu Portfolio</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+            /* --- UPDATED CSS FOR BIGGER, BALANCED LAYOUT --- */
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+            /* INCREASE NAV FONT SIZE */
+            #nav .links li a {
+                font-size: 1.3rem; 
+                font-weight: 800;  
+            }
+
+            /* Container for the list of projects */
+            .project-list {
+                display: flex;
+                flex-direction: column;
+                gap: 40px; /* Increased gap for better separation */
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            /* The individual project row */
+            .project-row {
+                display: flex;
+                flex-direction: row; 
+                gap: 30px; /* Increased gap between image and text */
+                align-items: flex-start; 
+            }
+
+            /* LEFT COLUMN: Image and Button */
+            /* UPDATED: Increased width significantly to make image bigger */
+            .project-media {
+                flex: 0 0 42%; /* Fix width to 42% (was roughly 30%) */
+                max-width: 42%;
+                display: flex;
+                flex-direction: column;
+                gap: 15px; 
+            }
+
+            /* The box around the image */
+            .image-box {
+                border: 1px solid #e1e1e1; 
+                padding: 8px; /* Slightly more padding */
+                background: #fff;
+                border-radius: 4px; 
+            }
+
+            .image-box img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 2px;
+            }
+
+            /* Button styling */
+            .project-media .button {
+                width: 100%;
+                text-align: center;
+                border: 1px solid #333; 
+                color: #333;
+                font-weight: bold;
+                font-size: 1rem; /* Bigger text in button */
+                box-shadow: none !important; 
+                height: auto;
+                line-height: 3em; /* Taller, more substantial button */
+                padding: 0 1em;
+                letter-spacing: 2px; /* Nicer spacing */
+            }
+            .project-media .button:hover {
+                border-color: #18bfef;
+                color: #18bfef !important;
+            }
+
+            /* RIGHT COLUMN: Text Content */
+            .project-content {
+                flex: 1; /* Takes up remaining space (approx 58%) */
+                border: 1px solid #e1e1e1; 
+                padding: 25px 30px; /* Increased padding for a spacious look */
+                text-align: left;
+                background: #fff;
+                border-radius: 4px; 
+            }
+
+            /* Text Styling */
+            .project-content h3 {
+                margin-top: 0;
+                margin-bottom: 15px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 1.3rem; /* Bigger Heading */
+                font-weight: 800;
+            }
+
+            .info-section {
+                margin-bottom: 15px; 
+            }
+
+            .info-label {
+                font-weight: 700;
+                font-size: 1rem; /* Bigger Label */
+                text-decoration: underline;
+                display: block;
+                margin-bottom: 5px;
+                color: #444;
+            }
+
+            /* Paragraphs and Lists */
+            .project-content p, 
+            .project-content ul {
+                margin: 0;
+                font-size: 1rem; /* Standard readable size (was 0.9rem) */
+                line-height: 1.6;
+            }
+            
+            .project-content ul {
+                padding-left: 20px;
+            }
+
+            .project-content li {
+                margin-bottom: 5px;
+            }
 
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1> Shanu<br />
-						Portfolio</h1>
-						<p> Aspiring Data Scientist well versed in Python, SQL, PyTorch, Machine Learning  <br /> ( <a href="https://www.hackerrank.com/profile/shanu436833" target="_blank"> HackerRank ,</a>
-						<a href="https://leetcode.com/u/shanuu23/" target="_blank">LeetCode , </a><a href="https://www.kaggle.com/sk23000" target="_blank">Kaggle </a>)</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
-				<!-- Header -->
-				<header id="header">
-					<a href="index.html" class="logo">Projects</a>
-				</header>
+            /* Mobile Responsiveness: Stack them vertically on phones */
+            @media (max-width: 800px) {
+                .project-row {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+                .project-media, .project-content {
+                    width: 100%;
+                    max-width: 100%; /* Reset max-width for mobile */
+                    flex: none;
+                }
+                #nav .links li a {
+                    font-size: 1.1rem; 
+                }
+            }
+        </style>
+    </head>
+    <body class="is-preload">
 
-		
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Projects</a></li>
-							<li><a href="certifications.html">Certifications</a></li>
-							<li><a href="experiences.html">Experiences</a></li>
-							<li><a href="volunteering.html">volunteering</a></li>
+        <div id="wrapper" class="fade-in">
 
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/shanusharmaa/" target="_blank"  class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/shanuu23" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
 
-				<!-- Main -->
-					<div id="main">
+                <div id="intro">
+                        <h1> Shanu<br />
+                        Portfolio</h1>
+                        <p style="max-width:800px;margin:0 auto;line-height:1.6;font-family:'Inter','Segoe UI',Roboto,Arial,sans-serif;text-align:justify;text-justify:inter-word;text-align-last:justify;">
+                            Detail-oriented <strong>Master of Data Science </strong>student with hands-on experience in Python, Data Analysis, Machine Learning, and Deep Learning. 
+                            Skilled in building end-to-end data workflows and developing ML models. <strong>Seeking Data Science Internship Opportunities.</strong></p>
 
-						<!-- Featured Post -->
-<!-- 							
-							<article class="post featured">
-								<header class="major">
-									
-									<h2><a href="https://www.kaggle.com/code/sk23000/mental-health-in-tech-eda-and-base-line-model"  target="_blank" > Mental Health in Tech </a></h2>
-									<p>This project uses Pandas and Seaborn to analyze Spotify data by cleaning the dataset, identifying top playlists, genres, and tracks, and visualizing trends in music popularity.</p>
-									</header>
-								<a class="image main"><img src="images\mental_health.jpg" alt="" /></a>
-								<ul class="actions special">
-									<li><a href="https://www.kaggle.com/code/sk23000/mental-health-in-tech-eda-and-base-line-model"   target="_blank" class="button large">View Project</a></li>
-								</ul>
-							</article> -->
+                        <ul class="actions">
+                        <li><a>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                        </ul>
+                        <ul class="actions">
+                        <li><a>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                        </ul>
+                        <ul class="actions">
+                            <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+                        </ul>
+                    </div>
+                <header id="header">
+                    <a href="index.html" class="logo">Projects</a>
+                </header>
 
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-									<header>
-										
-										<h2><a href="https://github.com/shanuu23/Forex-Converter" target="_blank">Forex Converter<br />
-											</h2>
-									</header>
-									<a class="image fit"><img src="images/forex.jpg" alt="" /></a>
-									<p></p>
-									<ul class="actions special">
-										<li><a href="https://forex-converter-vzzy6e2mahddgrpqjdx9pt.streamlit.app/" target="_blank" class="button">Use Project</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										
-										<h2><a href="https://www.kaggle.com/code/sk23000/mental-health-in-tech-eda-and-base-line-model" target="_blank">Mental Health <br />
-											in Tech
-										</a></h2>
-									</header>
-									<a class="image fit"><img src="images\mental_health.jpg" alt="" /></a>
-									<p></p>
-									<ul class="actions special">
-										<li><a href="https://www.kaggle.com/code/sk23000/mental-health-in-tech-eda-and-base-line-model" target="_blank" class="button">View Project</a></li>
-									</ul>
-								</article>
+        
+                <nav id="nav">
+                        <ul class="links">
+                            <li class="active"><a href="index.html">Projects</a></li>
+                            <li><a href="certifications.html">Certifications</a></li>
+                            <li><a href="experiences.html">Experiences</a></li>
+                            <li><a href="volunteering.html">Volunteering</a></li>
+
+                        </ul>
+                        <ul class="icons">
+                            <li><a href="https://www.linkedin.com/in/shanusharmaa/" target="_blank"  class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                            <li><a href="https://github.com/shanuu23" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                            <li><a href="https://leetcode.com/u/sharmashanu23/" target="_blank"><img src="leetcode.svg" alt="LeetCode" style="width:20px; height:20px;"></a></li>
+                            <li><a href="https://www.kaggle.com/sk23000" target="_blank" class="icon brands fa-kaggle"><span class="label">Kaggle</span></a></li>
+                            <li><a href="https://www.hackerrank.com/profile/shanu436833" target="_blank" class="icon brands fa-hackerrank"><span class="label">HackerRank</span></a></li>
+                        </ul>
+                    </nav>
+
+                <div id="main">
+
+                        <section class="project-list">
+
+							<article class="project-row">
+    						<div class="project-media">
+        					<div class="image-box">
+            				<img src="images/Loan.png" alt="Loan Prediction" />
+        					</div>
+        					<a href="https://www.kaggle.com/code/sk23000/catboost-on-competition-data-0-92531" target="_blank" class="button">View Project</a>
+    						</div>
+
+							<div class="project-content">
+								<h3>Loan Repayment Prediction</h3>
 								
-								<article>
-									<header>
-										
-										<h2><a href="https://github.com/shanuu23/Celebrity_Recognition/blob/main/DL_model.ipynb" target="_blank">Celebrity Face Classifier<br />
-											with ResNet18</a></h2>
-									</header>
-									<a class="image fit"><img src="images/actors.jpg" alt="" /></a>
-									<p>Built a deep learning model using ResNet18 for celebrity face recognition. The project involved data preprocessing,
-										model training, and performance evaluation with visualization tools.
-										Achieving over 94% validation accuracy, the model demonstrates the effectiveness of transfer learning in computer 
-										vision tasks and provides a foundation for real-world applications such as identity verification and content tagging.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/shanuu23/Celebrity_Recognition/blob/main/DL_model.ipynb" target="_blank" class="button">View Project</a></li>
+								<div class="info-section">
+									<span class="info-label">About the project:</span>
+									<ul>
+										<li>Secured a <strong>Top 20%</strong> rank in the Kaggle Playground S5E11 competition by accurately predicting loan repayment.</li>
+										<li>Developed a high-performance <strong>CatBoost</strong> classifier using symmetric trees, optimized over 25,000 iterations.</li>
+										<li>Engineered features via log and square-root transformations to normalize skewed income and debt metrics.</li>
+										<li>Built an automated <strong>Scikit-Learn pipeline</strong> integrating OneHot and Ordinal encoding for complex categorical data.</li>
 									</ul>
-								</article>
-								<article>
-									<!-- <header>
-										
-										<h2><a href="https://github.com/shanuu23/Celebrity_Recognition/blob/main/DL_model.ipynb" target="_blank">Celebrity Face Classifier<br />
-											with ResNet18</a></h2>
-									</header>
-									<a class="image fit"><img src="images/actors.jpg" alt="" /></a>
-									<p>Built a deep learning model using ResNet18 for celebrity face recognition. The project involved data preprocessing,
-										model training, and performance evaluation with visualization tools.
-										Achieving over 94% validation accuracy, the model demonstrates the effectiveness of transfer learning in computer 
-										vision tasks and provides a foundation for real-world applications such as identity verification and content tagging.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/shanuu23/Celebrity_Recognition/blob/main/DL_model.ipynb" target="_blank" class="button">View Project</a></li>
-									</ul> -->
-								</article>
+								</div>
+
+								<div class="info-section">
+									<span class="info-label">Tech Stack Used:</span>
+									<p>Python, Pandas, CatBoost, Scikit-Learn, NumPy.</p>
+								</div>
+
+								<div class="info-section">
+									<span class="info-label">Problems Faced:</span>
+									<p>Handling inconsistent categorical labels, normalizing highly skewed numerical features, and preserving hierarchical relationships in credit grades.</p>
+								</div>
+							</div>
+							</article>
+
+                            <article class="project-row">
+							<div class="project-media">
+								<div class="image-box">
+									<img src="images/forex.jpg" alt="Forex Converter Interface" />
+								</div>
+								<a href="https://forex-converter-vzzy6e2mahddgrpqjdx9pt.streamlit.app/" target="_blank" class="button">Use Project</a>
+							</div>
+
+							<div class="project-content">
+								<h3>Foreign Currency Converter</h3>
 								
-							</section>
+								<div class="info-section">
+									<span class="info-label">About the project:</span>
+									<ul>
+										<li>Built a real-time <strong>Currency Converter</strong> app fetching live exchange rates for instant financial calculations.</li>
+										<li>Developed an interactive <strong>Streamlit</strong> interface for seamless source/target currency selection.</li>
+										<li>Integrated external <strong>APIs</strong> to retrieve precise, up-to-date market valuations globally.</li>
+										<li>Implemented robust error handling to gracefully manage API timeouts and invalid inputs.</li>
+									</ul>
+								</div>
 
-						<!-- Footer -->
-							
-					</div>
+								<div class="info-section">
+									<span class="info-label">Tech Stack Used:</span>
+									<p>Python, Streamlit, Requests API, Pandas.</p>
+								</div>
 
-				<!-- Footer -->
-			
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; shanu</li><li>Portfolio</li></ul>
-					</div>
+								<div class="info-section">
+									<span class="info-label">Problems Faced:</span>
+									<p>Mitigating API rate limits, ensuring floating-point precision for financial accuracy, and optimizing Streamlit state management.</p>
+								</div>
+							</div>
+						</article>
 
-			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+							<article class="project-row">
+							<div class="project-media">
+								<div class="image-box">
+									<img src="images/analysis.jpg" alt="SQL Performance Analysis" />
+								</div>
+								<a href="https://drive.google.com/file/d/10IQ1_n2JsFNQnqDf-gcDouRaEFo-SRA3/view?usp=sharing" target="_blank" class="button">View Project</a>
+							</div>
 
-	</body>
+							<div class="project-content">
+								<h3>Company Performance Analysis with SQL</h3>
+								
+								<div class="info-section">
+									<span class="info-label">About the project:</span>
+									<ul>
+										<li>Executed cross-functional performance analysis using <strong>SQL</strong> to drive strategic decisions in Sales, Logistics, and HR.</li>
+										<li>Diagnosed critical shipping bottlenecks across 9 countries, identifying delays exceeding 5 days.</li>
+										<li>Validated pricing strategy, confirming 35% of inventory thrives in the high-margin medium-premium segment.</li>
+										<li>Determined that unique order volume, not discounting, is the primary catalyst for revenue growth.</li>
+									</ul>
+								</div>
+
+								<div class="info-section">
+									<span class="info-label">Tech Stack Used:</span>
+									<p>SQL (PostgreSQL), DBeaver, Python, Pandas, Matplotlib.</p>
+								</div>
+
+								<div class="info-section">
+									<span class="info-label">Problems Faced:</span>
+									<p>Orchestrating complex joins across 13 relational tables, detecting extreme price anomalies (up to 50%), and visualizing seasonal logistics trends.</p>
+								</div>
+							</div>
+						</article>
+
+                            <article class="project-row">
+							<div class="project-media">
+								<div class="image-box">
+									<img src="images/actors.jpg" alt="Celebrity Face Classifier" />
+								</div>
+								<a href="https://github.com/shanuu23/Celebrity_Face_Classifier_using_ResNet18" target="_blank" class="button">View Project</a>
+							</div>
+
+							<div class="project-content">
+								<h3>Celebrity Face Classifier with ResNet18</h3>
+								
+								<div class="info-section">
+									<span class="info-label">About the project:</span>
+									<ul>
+										<li>Engineered a high-performance <strong>Face Recognition</strong> system achieving <strong>94% validation accuracy</strong> on celebrity identities.</li>
+										<li>Utilized <strong>Transfer Learning</strong> with <strong>ResNet18</strong> to adapt pre-trained weights for specific facial feature extraction.</li>
+										<li>Implemented a comprehensive pipeline with robust <strong>data augmentation</strong> to mitigate overfitting.</li>
+										<li>Demonstrated real-world potential for automated content tagging and identity verification systems.</li>
+									</ul>
+								</div>
+
+								<div class="info-section">
+									<span class="info-label">Tech Stack Used:</span>
+									<p>Python, PyTorch, ResNet18, OpenCV, Matplotlib, NumPy.</p>
+								</div>
+
+								<div class="info-section">
+									<span class="info-label">Problems Faced:</span>
+									<p>Overcoming dataset overfitting through augmentation, fine-tuning deep CNN layers for specific domains, and optimizing inference efficiency.</p>
+								</div>
+							</div>
+						</article>
+
+                        </section>
+
+                        </div>
+
+                <div id="copyright">
+                        <ul><li>&copy; shanu</li><li>Portfolio</li></ul>
+                    </div>
+
+            </div>
+
+        <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.scrollex.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+
+    </body>
 </html>
